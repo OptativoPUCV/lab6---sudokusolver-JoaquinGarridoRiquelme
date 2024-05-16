@@ -164,10 +164,10 @@ List* get_adj_nodes(Node* n)
                   nuevo_nodo-> sudo[fila_vacia][columna_vacia] = i + 1;
                   if(is_valid(nuevo_nodo)) pushBack(list, nuevo_nodo);
                }
+               return list;
             }
          }
    }
-   return list;
 }
 
 
