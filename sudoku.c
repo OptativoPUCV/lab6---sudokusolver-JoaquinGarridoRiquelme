@@ -43,9 +43,23 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){
+int se_encuentra(List *lista, int data)
+{
+   List *aux = 
+}
 
-    return 1;
+int is_valid(Node* n)
+{
+   for(size_t i = 0; i <= 8; i++)
+      {
+         for(size_t j = 0; j <= 8; j++)
+            {
+               List *lista_columnas = createList();
+               if(n->sudo[i][j] != 0 && n->sudo[i][j] )
+            }
+      }
+   
+   return 1;
 }
 
 
@@ -57,22 +71,20 @@ List* get_adj_nodes(Node* n)
    {
       for(size_t j=0; j <= 8; j++)
          {
-            if(n-> sudo[i][j] == 0)
+            if(n-> sudo[i][j] == 0 )
             {
                fila_vacia = i;
                columna_vacia = j;
                for(int i = 0; i <=9; i++)
-                  {
-                     Node *nuevo_nodo = createNode();
-                     nuevo_nodo = copy(n);
-                     nuevo_nodo-> sudo[fila_vacia][columna_vacia] = i + 1;
-                     pushBack(list, nuevo_nodo);
-                  }
+               {
+                  Node *nuevo_nodo = createNode();
+                  nuevo_nodo = copy(n);
+                  nuevo_nodo-> sudo[fila_vacia][columna_vacia] = i + 1;
+                  pushBack(list, nuevo_nodo);
+               }
             }
          }
    }
-
-
    return list;
 }
 
@@ -81,10 +93,10 @@ int is_final(Node* n){
     return 0;
 }
 
-Node* DFS(Node* initial, int* cont){
-  return NULL;
+Node* DFS(Node* initial, int* cont)
+{
+   return NULL;
 }
-
 
 
 /*
