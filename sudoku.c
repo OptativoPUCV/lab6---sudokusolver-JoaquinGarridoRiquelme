@@ -47,18 +47,36 @@ int is_valid(Node* n)
 {
    for(size_t i = 0; i <= 8; i++)
       {
+         int *lista_columnas = calloc(9,sizeof(int));
          for(size_t j = 0; j <= 8; j++)
             {
-               int *lista = calloc(9,sizeof(int));
                if(n->sudo[i][j] != 0)
                {
-                  if (lista[n->sudo[i][j]] == 0)
+                  if (lista_columnas[n->sudo[i][j]] == 0)
                   {
-                     lista[n->sudo[i][j]] = n->sudo[i][j];
+                     lista_columnas[n->sudo[i][j] - 1] = n->sudo[i][j];
                   }
                   else return 0;
                }
             }
+         free(lista_columnas);
+      }
+
+   for(size_t j = 0; j <= 8; j++)
+      {
+         int *lista_filas = calloc(9,sizeof(int));
+         for(size_t i = 0; i <= 8; i++)
+            {
+               if(n->sudo[i][j] != 0)
+               {
+                  if (lista_filas[n->sudo[i][j]] == 0)
+                  {
+                     lista_filas[n->sudo[i][j] - 1] = n->sudo[i][j];
+                  }
+                  else return 0;
+               }
+            }
+         free(lista_filas);
       }
    
    return 1;
