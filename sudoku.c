@@ -43,6 +43,50 @@ void print_node(Node* n){
     printf("\n");
 }
 
+int is_valid(Node* n){
+   //verificar filas, columnas y matrices de 3x3
+   for(int i = 0; i < 9; i++){
+      int visto[10] = {0};
+      for(int j = 0; j < 9; j++){
+         if(n->sudo[i][j] != 0){
+         if(visto[n->sudo[i][j]] == 1) 
+            return 0;
+         else visto[n->sudo[i][j]] = 1;
+         }
+      }
+   }
+
+   for(int j = 0; j < 9; j++){
+      int visto[10] = {0};
+      for(int i = 0; i < 9; i++){
+         if(n->sudo[i][j] != 0){
+         if(visto[n->sudo[i][j]] == 1) 
+            return 0;
+         else visto[n->sudo[i][j]] = 1;
+         }
+      }
+   }
+
+   for(int fila = 0; fila < 9; fila+=3){
+      for(int col = 0; col < 9; col +=3){
+         int visto[10] = {0};
+         for(int i = fila; i < fila+3; i++){
+            for(int j = col; j < col+3; j++){
+                  if(n->sudo[i][j] != 0){
+                     if(visto[n->sudo[i][j]] == 1)
+                        return 0;
+                     else 
+                        visto[n->sudo[i][j]] = 1;
+                  }
+            }
+         }
+      }
+   }
+
+    return 1;
+}
+
+/*
 int is_valid(Node* n)
 {
    for(size_t i = 0; i <= 8; i++)
@@ -98,7 +142,7 @@ int is_valid(Node* n)
     }
    
    return 1;
-}
+}*/
 
 
 List* get_adj_nodes(Node* n)
