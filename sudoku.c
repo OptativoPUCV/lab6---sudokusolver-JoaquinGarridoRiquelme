@@ -61,17 +61,18 @@ List* get_adj_nodes(Node* n)
             {
                fila_vacia = i;
                columna_vacia = j;
+               for(int i = 0; i <=9; i++)
+                  {
+                     Node *nuevo_nodo = createNode();
+                     nuevo_nodo = copy(n);
+                     nuevo_nodo-> sudo[fila_vacia][columna_vacia] = i + 1;
+                     pushBack(list, nuevo_nodo);
+                  }
             }
          }
    }
 
-   for(int i = 0; i <=9; i++)
-   {
-      Node *nuevo_nodo = createNode();
-      nuevo_nodo = copy(n);
-      nuevo_nodo-> sudo[fila_vacia][columna_vacia] = i + 1;
-      pushBack(list, nuevo_nodo);
-   }
+
    return list;
 }
 
