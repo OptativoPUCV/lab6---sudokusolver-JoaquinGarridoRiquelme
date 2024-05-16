@@ -43,19 +43,21 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int se_encuentra(List *lista, int data)
-{
-   List *aux = 
-}
-
 int is_valid(Node* n)
 {
    for(size_t i = 0; i <= 8; i++)
       {
          for(size_t j = 0; j <= 8; j++)
             {
-               List *lista_columnas = createList();
-               if(n->sudo[i][j] != 0 && n->sudo[i][j] )
+               int *lista = calloc(9,sizeof(int));
+               if(n->sudo[i][j] != 0)
+               {
+                  if (lista[n->sudo[i][j]] == 0)
+                  {
+                     lista[n->sudo[i][j]] = n->sudo[i][j];
+                  }
+                  else return 0;
+               }
             }
       }
    
