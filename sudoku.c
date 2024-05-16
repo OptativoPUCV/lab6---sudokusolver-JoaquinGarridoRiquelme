@@ -53,9 +53,9 @@ List* get_adj_nodes(Node* n)
 {
    List* list=createList();
    size_t fila_vacia , columna_vacia =0;
-   for(size_t i=0; i <= 9; i++)
+   for(size_t i=0; i <= 8; i++)
    {
-      for(size_t j=0; j <= 9; j++)
+      for(size_t j=0; j <= 8; j++)
          {
             if(n-> sudo[i][j] == 0)
             {

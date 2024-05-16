@@ -19,3 +19,14 @@ sudoku.c:72:52: error: ‘fila_vacia’ may be used uninitialized in this functi
 cc1: all warnings being treated as errors
 Compilation failed
 332f770
+Thu 16 May 2024 06:33:07 PM UTC: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:72:52: error: ‘fila_vacia’ may be used uninitialized in this function [-Werror=maybe-uninitialized]
+   72 |       nuevo_nodo-> sudo[fila_vacia][columna_vacia] = i + 1;
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+5d03c58
