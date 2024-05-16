@@ -2,3 +2,20 @@ Thu 16 May 2024 05:58:59 PM UTC:
  tests:  0|5
 total_score: 0/70
 7e9b849
+Thu 16 May 2024 06:32:32 PM UTC: 
+ sudoku.c | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+test.c: In function ‘get_adj_nodes’:
+sudoku.c:60:27: error: iteration 9 invokes undefined behavior [-Werror=aggressive-loop-optimizations]
+   60 |             if(n-> sudo[i][j] == 0)
+      |                ~~~~~~~~~~~^~~
+sudoku.c:58:25: note: within this loop
+   58 |       for(size_t j=0; j <= 9; j++)
+      |                       ~~^~~~
+sudoku.c:72:52: error: ‘fila_vacia’ may be used uninitialized in this function [-Werror=maybe-uninitialized]
+   72 |       nuevo_nodo-> sudo[fila_vacia][columna_vacia] = i + 1;
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+332f770
