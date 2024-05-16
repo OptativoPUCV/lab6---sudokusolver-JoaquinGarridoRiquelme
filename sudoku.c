@@ -88,7 +88,7 @@ int is_valid(Node* n)
                 for (int j = 0; j < 3; j++) 
                 {
                    if(lista_sub[n->sudo[i][j]] == 0)
-                      lista_sub[n->sudo[i][j]] = n->sudo[i][j];
+                      lista_sub[n->sudo[i][j] - 1] = n->sudo[i][j];
                    else return 0;                  
                 }
 
