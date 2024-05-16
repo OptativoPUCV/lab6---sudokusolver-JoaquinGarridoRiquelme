@@ -78,6 +78,24 @@ int is_valid(Node* n)
             }
          free(lista_filas);
       }
+
+   for (int filas_general = 0; filas_general <= 8; filas_general += 3) {
+        for (int colum_general = 0; colum_general <= 8; colum_general += 3) 
+        {
+           int *lista_sub = calloc(9,sizeof(int));
+            for (int i = 0; i < 3; i++) 
+            {
+                for (int j = 0; j < 3; j++) 
+                {
+                   if(lista_sub[n->sudo[i][j]] == 0)
+                      lista_sub[n->sudo[i][j]] = n->sudo[i][j];
+                   else return 0;                  
+                }
+
+            }
+           free(lista_sub);
+        }
+    }
    
    return 1;
 }
