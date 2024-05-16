@@ -65,7 +65,7 @@ List* get_adj_nodes(Node* n)
          }
    }
 
-   for(size_t i = 0; i <=9; i++)
+   for(int i = 0; i <=9; i++)
    {
       Node *nuevo_nodo = createNode();
       nuevo_nodo = copy(n);
