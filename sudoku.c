@@ -53,10 +53,7 @@ int is_valid(Node* n)
       //Registramos la cantidad de veces que un numero se encuentra 
       //en la columna
       for(int j = 0 ; j < 9 ; j++)
-      {
-         int numero = n->sudo[i][j];
-         lista[numero-1]++;
-      }
+         lista[n->sudo[i][j] -1]++;
       
       //Revisamos nuestra lista para que no contenga repeticiones
       for(int k = 0 ; k < 9 ; k++)
