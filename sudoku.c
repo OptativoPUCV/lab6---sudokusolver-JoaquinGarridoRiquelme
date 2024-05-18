@@ -167,6 +167,7 @@ List* get_adj_nodes(Node* n)
 {
    List* list=createList();
    size_t fila_vacia , columna_vacia =0;
+   if(is_valid(n) == 0) return list;
    for(size_t i=0; i <= 8; i++)
    {
       for(size_t j=0; j <= 8; j++)
@@ -180,8 +181,7 @@ List* get_adj_nodes(Node* n)
                   Node *nuevo_nodo = createNode();
                   nuevo_nodo = copy(n);
                   nuevo_nodo-> sudo[fila_vacia][columna_vacia] = i + 1;
-                  if(is_valid(nuevo_nodo))
-                     pushBack(list, nuevo_nodo);
+                  pushBack(list, nuevo_nodo);
                }
             }
          }
@@ -199,7 +199,7 @@ int is_final(Node* n)
          if(n->sudo[i][j] == 0) return 0;
       }
    }
-    return 1;
+   return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
