@@ -45,23 +45,24 @@ void print_node(Node* n){
 
 int is_valid(Node* n)
 {
-
-   //VERIFICAR FILA POR FILA
-   for(int i = 0 ; i < 9 ; i++) //FILAS
+   //Recorremos la matriz para revisar columnas
+   for(int i = 0 ; i < 9 ; i++) 
    {
-      int *arreglo = (int *) calloc(sizeof(int), 9);
-      for(int j = 0 ; j < 9 ; j++) //COLUMNAS
+      
+      int *lista = (int *) calloc(sizeof(int), 9);
+      //Registramos la cantidad de veces que un numero se encuentra 
+      //en la columna
+      for(int j = 0 ; j < 9 ; j++)
       {
          int numero = n->sudo[i][j];
-         arreglo[numero-1]++;
+         lista[numero-1]++;
       }
-      //VERIFICAR ARREGLO
+      
+      //Revisamos nuestra lista para que no contenga repeticiones
       for(int k = 0 ; k < 9 ; k++)
       {
-         if(arreglo[k] > 1)
-            return 0;
+         if(lista[k] > 1) return 0;
       }
-
    }
 
    //VERIFICAR COLUMNA POR COLUMNA
@@ -103,65 +104,6 @@ int is_valid(Node* n)
 
     return 1;
 }
-
-/*
-int is_valid(Node* n)
-{
-   for(size_t i = 0; i <= 8; i++)
-      {
-         int *lista_columnas = calloc(9,sizeof(int));
-         for(size_t j = 0; j <= 8; j++)
-            {
-               if(n->sudo[i][j] != 0)
-               {
-                  if (lista_columnas[n->sudo[i][j]] == 0)
-                  {
-                     lista_columnas[n->sudo[i][j] - 1] = n->sudo[i][j];
-                  }
-                  else return 0;
-               }
-            }
-         free(lista_columnas);
-      }
-
-   for(size_t j = 0; j <= 8; j++)
-      {
-         int *lista_filas = calloc(9,sizeof(int));
-         for(size_t i = 0; i <= 8; i++)
-            {
-               if(n->sudo[i][j] != 0)
-               {
-                  if (lista_filas[n->sudo[i][j]] == 0)
-                  {
-                     lista_filas[n->sudo[i][j] - 1] = n->sudo[i][j];
-                  }
-                  else return 0;
-               }
-            }
-         free(lista_filas);
-      }
-
-   for (int filas_general = 0; filas_general <= 8; filas_general += 3) {
-        for (int colum_general = 0; colum_general <= 8; colum_general += 3) 
-        {
-           int *lista_sub = calloc(9,sizeof(int));
-            for (int i = 0; i < 3; i++) 
-            {
-                for (int j = 0; j < 3; j++) 
-                {
-                   if(lista_sub[n->sudo[i][j]] == 0)
-                      lista_sub[n->sudo[i][j] - 1] = n->sudo[i][j];
-                   else return 0;                  
-                }
-
-            }
-           free(lista_sub);
-        }
-    }
-   
-   return 1;
-}*/
-
 
 List* get_adj_nodes(Node* n)
 {
