@@ -166,26 +166,30 @@ int is_valid(Node* n)
 List* get_adj_nodes(Node* n)
 {
    List* list=createList();
-   size_t fila_vacia , columna_vacia =0;
+   size_t fila_vacia , columna_vacia, aux = 0;
    if(is_valid(n) == 0) return list;
+   
    for(size_t i=0; i <= 8; i++)
    {
+      if (aux == 1) break;
       for(size_t j=0; j <= 8; j++)
          {
             if(n-> sudo[i][j] == 0 )
             {
+               aux = 1;
                fila_vacia = i;
                columna_vacia = j;
-               for(int i = 0; i <=9; i++)
-               {
-                  Node *nuevo_nodo = createNode();
-                  nuevo_nodo = copy(n);
-                  nuevo_nodo-> sudo[fila_vacia][columna_vacia] = i + 1;
-                  pushBack(list, nuevo_nodo);
-               }
+               break;
             }
          }
    }
+   for(int i = 0; i <=9; i++)
+      {
+         Node *nuevo_nodo = createNode();
+         nuevo_nodo = copy(n);
+         nuevo_nodo-> sudo[fila_vacia][columna_vacia] = i + 1;
+         pushBack(list, nuevo_nodo);
+      }
    return list;
 }
 

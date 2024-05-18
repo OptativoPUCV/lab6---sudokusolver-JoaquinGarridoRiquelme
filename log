@@ -170,3 +170,15 @@ Sat 18 May 2024 03:57:38 AM UTC:
  tests:  7|2
 total_score: 50/70
 d8bf06f
+Sat 18 May 2024 04:04:10 AM UTC: 
+ sudoku.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:190:55: error: ‘columna_vacia’ may be used uninitialized in this function [-Werror=maybe-uninitialized]
+  190 |          nuevo_nodo-> sudo[fila_vacia][columna_vacia] = i + 1;
+      |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+sudoku.c:190:55: error: ‘fila_vacia’ may be used uninitialized in this function [-Werror=maybe-uninitialized]
+cc1: all warnings being treated as errors
+Compilation failed
+2f42097
