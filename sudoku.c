@@ -43,45 +43,63 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){
-   //verificar filas, columnas y matrices de 3x3
-   for(int i = 0; i < 9; i++){
-      int visto[10] = {0};
-      for(int j = 0; j < 9; j++){
-         if(n->sudo[i][j] != 0){
-         if(visto[n->sudo[i][j]] == 1) 
+int is_valid(Node* n)
+{
+
+   //VERIFICAR FILA POR FILA
+   for(int i = 0 ; i < 9 ; i++) //FILAS
+   {
+      int *arreglo = (int *) calloc(sizeof(int), 9);
+      for(int j = 0 ; j < 9 ; j++) //COLUMNAS
+      {
+         int numero = n->sudo[i][j];
+         arreglo[numero-1]++;
+      }
+      //VERIFICAR ARREGLO
+      for(int k = 0 ; k < 9 ; k++)
+      {
+         if(arreglo[k] > 1)
             return 0;
-         else visto[n->sudo[i][j]] = 1;
-         }
+      }
+
+   }
+
+   //VERIFICAR COLUMNA POR COLUMNA
+   for(int j = 0 ; j < 9 ; j++) //COLUMNAS
+   {
+      int *arreglo = (int *) calloc(sizeof(int), 9); //FILAS
+      for(int i = 0 ; i < 9 ; i++)
+      {
+         int numero = n->sudo[i][j];
+         arreglo[numero-1]++;
+      }
+      //VERIFICAR ARREGLO
+      for(int k = 0 ; k < 9 ; k++)
+      {
+         if(arreglo[k] > 1)
+            return 0;
       }
    }
 
-   for(int j = 0; j < 9; j++){
-      int visto[10] = {0};
-      for(int i = 0; i < 9; i++){
-         if(n->sudo[i][j] != 0){
-         if(visto[n->sudo[i][j]] == 1) 
+   //VERIFICAR BLOQUE POR BLOQUE
+   for(int i = 0 ; i < 9 ; i++) //BLOQUE 
+   {
+      int *arreglo = (int *) calloc(sizeof(int), 9);
+      for(int j = 0 ; j < 9 ; j++) //RECORRER EL BLOQUE
+      {
+         int k = 3*(i/3) + (j/3);
+         int l = 3*(i%3) + (j%3);
+         int numero = n->sudo[k][l];
+         arreglo[numero-1]++;
+      }
+      //VERIDICAR ARREGLO
+      for(int m = 0 ; m < 9 ; m++)
+      {
+         if(arreglo[m] > 1)
             return 0;
-         else visto[n->sudo[i][j]] = 1;
-         }
       }
    }
 
-   for(int fila = 0; fila < 9; fila+=3){
-      for(int col = 0; col < 9; col +=3){
-         int visto[10] = {0};
-         for(int i = fila; i < fila+3; i++){
-            for(int j = col; j < col+3; j++){
-                  if(n->sudo[i][j] != 0){
-                     if(visto[n->sudo[i][j]] == 1)
-                        return 0;
-                     else 
-                        visto[n->sudo[i][j]] = 1;
-                  }
-            }
-         }
-      }
-   }
 
     return 1;
 }
