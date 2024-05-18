@@ -182,3 +182,9 @@ sudoku.c:190:55: error: ‘fila_vacia’ may be used uninitialized in this funct
 cc1: all warnings being treated as errors
 Compilation failed
 2f42097
+Sat 18 May 2024 04:04:43 AM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  7|2
+total_score: 50/70
+02dc00c

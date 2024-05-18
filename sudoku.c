@@ -166,7 +166,7 @@ int is_valid(Node* n)
 List* get_adj_nodes(Node* n)
 {
    List* list=createList();
-   size_t fila_vacia , columna_vacia, aux = 0;
+   size_t fila_vacia = 0 , columna_vacia = 0, aux = 0;
    if(is_valid(n) == 0) return list;
    
    for(size_t i=0; i <= 8; i++)
