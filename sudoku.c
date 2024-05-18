@@ -93,8 +93,9 @@ int is_valid(Node* n)
          if(lista[m] > 1) return 0;
    }
 
-
-    return 1;
+   //En caso de haber pasado todas las pruebas, podemos confirmar
+   //que nuestro sudoku es valido, retornando 1
+   return 1;
 }
 
 List* get_adj_nodes(Node* n)
