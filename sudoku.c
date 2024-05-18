@@ -183,7 +183,7 @@ List* get_adj_nodes(Node* n)
             }
          }
    }
-   for(int i = 0; i <=9; i++)
+   for(int i = 0; i <=8; i++)
       {
          Node *nuevo_nodo = createNode();
          nuevo_nodo = copy(n);
