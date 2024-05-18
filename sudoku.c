@@ -57,26 +57,19 @@ int is_valid(Node* n)
       
       //Revisamos nuestra lista para que no contenga repeticiones
       for(int k = 0 ; k < 9 ; k++)
-      {
          if(lista[k] > 1) return 0;
-      }
    }
 
-   //VERIFICAR COLUMNA POR COLUMNA
-   for(int j = 0 ; j < 9 ; j++) //COLUMNAS
+   //Haremos el mismo proceso para revisar las filas de la matriz,
+   //inviertiendo el orden del bucle de recorrido
+   for(int j = 0 ; j < 9 ; j++) 
    {
-      int *arreglo = (int *) calloc(sizeof(int), 9); //FILAS
+      int *arreglo = (int *) calloc(sizeof(int), 9); 
       for(int i = 0 ; i < 9 ; i++)
-      {
-         int numero = n->sudo[i][j];
-         arreglo[numero-1]++;
-      }
-      //VERIFICAR ARREGLO
+         arreglo[n->sudo[i][j]-1]++;
+
       for(int k = 0 ; k < 9 ; k++)
-      {
-         if(arreglo[k] > 1)
-            return 0;
-      }
+         if(arreglo[k] > 1) return 0;
    }
 
    //VERIFICAR BLOQUE POR BLOQUE
