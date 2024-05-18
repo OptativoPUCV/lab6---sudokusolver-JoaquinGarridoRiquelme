@@ -88,7 +88,7 @@ int is_valid(Node* n)
          int l = 3*(i%3) + (j%3);
          lista[n->sudo[k][l]-1]++;
       }
-      //VERIDICAR ARREGLO
+
       for(int m = 0 ; m < 9 ; m++)
          if(lista[m] > 1) return 0;
    }
